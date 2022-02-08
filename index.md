@@ -14,7 +14,7 @@ To fill the above knowledge gap, we present a large-scale empirical study with f
 
 ## Detailed Results
 ### RQ1
-Detailed result of $$Accuracy$$ in trivial DL model evolution:
+Detailed result of Accuracy in trivial DL model evolution:
 
 |  Dataset  | MNIST   |        |        |         |        |        | Fashion-MNIST |        |        |         |        |        |
 | DNN Model | LeNet-1 |        |        | LeNet-5 |        |        | LeNet-1       |        |        | LeNet-5 |        |        |
@@ -41,7 +41,7 @@ Detailed result of $$Accuracy$$ in trivial DL model evolution:
 |   Step 7  |  90.40  | 90.57  | 90.59  |   95.26   | 95.46  | 95.08  |     -    |    -   |    -   |     -     |    -   |    -   |
 
 
-Detailed result of $$NFR$$ in trivial DL model evolution:
+Detailed result of NFR in trivial DL model evolution:
 
 |  Dataset  | MNIST   |       |       |         |       |       | Fashion-MNIST |       |       |         |       |       |
 | DNN Model | LeNet-1 |       |       | LeNet-5 |       |       | LeNet-1       |       |       | LeNet-5 |       |       |
@@ -66,7 +66,7 @@ Detailed result of $$NFR$$ in trivial DL model evolution:
 |   Step 7  | 0.97    | 1.97  | 1.54  | 1.44      | 1.32  | 1.46  |     -    |   -   |   -   |     -     |   -   |   -   |
 
 
-Detailed result of $$NFR_{rel}$$ in trivial DL model evolution:
+Detailed result of Relative NFR in trivial DL model evolution:
 
 |  Dataset  | MNIST   |        |        |         |        |        | Fashion-MNIST |        |        |         |        |        |
 | DNN Model | LeNet-1 |        |        | LeNet-5 |        |        | LeNet-1       |        |        | LeNet-5 |        |        |
@@ -91,7 +91,7 @@ Detailed result of $$NFR_{rel}$$ in trivial DL model evolution:
 |   Step 7  | 11.22   | 23.09 | 18.12 | 31.91     | 30.51 | 31.23 |     -    |   -   |   -   |     -     |   -   |   -   |
 
 ### RQ2
-The impact of test input selection techniques on $$Accuracy$$:
+The impact of test input selection techniques on Accuracy:
 
 |                          | $$MaxP$$ | $$Margin$$ | $$Entropy$$ | $$DeepGini$$ | $$MCP$$ | $$KL_p$$ | $$Var_p$$ | $$Random$$ |
 |--------------------------|----------|------------|-------------|--------------|---------|----------|-----------|------------|
@@ -120,7 +120,7 @@ The impact of test input selection techniques on $$Accuracy$$:
 | CIFAR-10/ResNet-18 #2    | 77.04    | 77.21      | 77.19       | 77.09        | 77.02   | 76.29    | 76.91     | 75.89      |
 | CIFAR-10/ResNet-18 #3    | 77.19    | 77.16      | 77.14       | 77.17        | 77.13   | 76.37    | 77.00     | 75.83      |
 
-The impact of test input selection techniques on $$NFR$$:
+The impact of test input selection techniques on NFR:
 
 |                          | $$MaxP$$ | $$Margin$$ | $$Entropy$$ | $$DeepGini$$ | $$MCP$$ | $$KL_p$$ | $$Var_p$$ | $$Random$$ |
 |--------------------------|----------|------------|-------------|--------------|---------|----------|-----------|------------|
@@ -149,7 +149,7 @@ The impact of test input selection techniques on $$NFR$$:
 | CIFAR-10/ResNet-18 #2    | 5.30     | 5.32       | 5.33        | 5.55         | 5.47    | 5.58     | 5.38      | 5.49       |
 | CIFAR-10/ResNet-18 #3    | 5.35     | 5.38       | 5.52        | 5.45         | 5.29    | 5.62     | 5.23      | 5.49       |
 
-The impact of test input selection techniques on $$NFR_{rel}$$:
+The impact of test input selection techniques on Relative NFR:
 
 |                          | $$MaxP$$ | $$Margin$$ | $$Entropy$$ | $$DeepGini$$ | $$MCP$$ | $$KL_p$$ | $$Var_p$$ | $$Random$$ |
 |--------------------------|----------|------------|-------------|--------------|---------|----------|-----------|------------|
