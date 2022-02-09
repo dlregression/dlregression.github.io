@@ -17,8 +17,7 @@ To fill the above knowledge gap, we present a large-scale empirical study with f
 Detailed result of **Accuracy** in trivial DL model evolution in each run.
 
 |  Dataset  | MNIST   |        |        |         |        |        | Fashion-MNIST |        |        |         |        |        |
-| DNN Model | LeNet-1 |        |        | LeNet-5 |        |        | LeNet-1       |        |        | LeNet-5 |        |        |
-
+| DNN Model | LeNet-1 |        |        | LeNet-5 |        |        | LeNet-1       |        |        | LeNet-5 |      |        |
 |  Step  | #1    | #2    | #3    | #1    | #2    | #3    | #1    | #2    | #3    | #1    | #2    | #3    |
 | :----: | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
 | Step 0 | 98.20 | 98.48 | 98.17 | 98.41 | 98.52 | 98.27 | 85.09 | 86.73 | 85.11 | 87.21 | 87.15 | 87.16 |
