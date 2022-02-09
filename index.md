@@ -5,7 +5,7 @@ Deep learning (DL) models have been widely employed in a variety of application 
 
 To fill the above knowledge gap, we present a large-scale empirical study with four datasets, three DNN models, seven state-of-the-art test input selection techniques, and four state-of-the-art regression reduction techniques to characterize the regression in DL model evolution. We find that i) regression is quite prevalent in DL model evolution across datasets and models, and it often overshadows the improved accuracy; ii) uncertainty-based test input selection techniques improve accuracy in DL model evolution, but also bring more regression problems; and iii) existing regression reduction techniques are not always effective in reducing regression, and usually have a tradeoff in reducing regression and improving performance. Our findings provide practical implications to test input selection and regression reduction in DL model evolution.
 
-**This website is where we present experimental detailed results and implementation source code of our study.**
+**This paper has been submitted to ISSTA 2022. Here we provide detailed experimental results and implementation source code of our study.**
 
 ## Research Questions
 * **RQ1: Severity Analysis.** What is the severity of the regression problem in **_trivial_** DL model evolution?
@@ -14,22 +14,23 @@ To fill the above knowledge gap, we present a large-scale empirical study with f
 
 ## Detailed Results
 ### RQ1
-Detailed result of Accuracy in trivial DL model evolution:
+Detailed result of **Accuracy** in trivial DL model evolution in each run.
 
 |  Dataset  | MNIST   |        |        |         |        |        | Fashion-MNIST |        |        |         |        |        |
 | DNN Model | LeNet-1 |        |        | LeNet-5 |        |        | LeNet-1       |        |        | LeNet-5 |        |        |
-|    Seq    |    #1   |   #2   |   #3   |    #1   |   #2   |   #3   |       #1      |   #2   |   #3   |    #1   |   #2   |   #3   |
-|:---------:|---------|--------|--------|---------|--------|--------|---------------|--------|--------|---------|--------|--------|
-|   Step 0  |  98.20  | 98.48  | 98.17  |  98.41  | 98.52  | 98.27  |     85.09     | 86.73  | 85.11  |  87.21  | 87.15  | 87.16  |
-|   Step 1  |  98.31  | 98.95  | 98.62  |  99.00  | 98.97  | 98.89  |     87.17     | 87.51  | 86.13  |  88.96  | 88.54  | 89.22  |
-|   Step 2  |  98.58  | 99.02  | 98.78  |  99.21  | 99.12  | 99.09  |     87.59     | 87.85  | 86.49  |  89.86  | 89.82  | 90.45  |
-|   Step 3  |  98.70  | 99.07  | 98.90  |  99.20  | 99.26  | 99.21  |     87.95     | 88.22  | 87.60  |  90.62  | 90.36  | 90.67  |
-|   Step 4  |  98.65  | 99.03  | 98.93  |  99.24  | 99.32  | 99.23  |     88.03     | 88.29  | 87.91  |  90.76  | 90.63  | 91.00  |
-|   Step 5  |  98.74  | 99.12  | 98.94  |  99.30  | 99.35  | 99.28  |     87.93     | 88.20  | 88.08  |  90.97  | 91.18  | 90.99  |
+
+|  Step  | #1    | #2    | #3    | #1    | #2    | #3    | #1    | #2    | #3    | #1    | #2    | #3    |
+| :----: | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| Step 0 | 98.20 | 98.48 | 98.17 | 98.41 | 98.52 | 98.27 | 85.09 | 86.73 | 85.11 | 87.21 | 87.15 | 87.16 |
+| Step 1 | 98.31 | 98.95 | 98.62 | 99.00 | 98.97 | 98.89 | 87.17 | 87.51 | 86.13 | 88.96 | 88.54 | 89.22 |
+| Step 2 | 98.58 | 99.02 | 98.78 | 99.21 | 99.12 | 99.09 | 87.59 | 87.85 | 86.49 | 89.86 | 89.82 | 90.45 |
+| Step 3 | 98.70 | 99.07 | 98.90 | 99.20 | 99.26 | 99.21 | 87.95 | 88.22 | 87.60 | 90.62 | 90.36 | 90.67 |
+| Step 4 | 98.65 | 99.03 | 98.93 | 99.24 | 99.32 | 99.23 | 88.03 | 88.29 | 87.91 | 90.76 | 90.63 | 91.00 |
+| Step 5 | 98.74 | 99.12 | 98.94 | 99.30 | 99.35 | 99.28 | 87.93 | 88.20 | 88.08 | 90.97 | 91.18 | 90.99 |
 
 |  Dataset  | SVHN    |        |        |           |        |        | CIFAR-10 |        |        |           |        |        |
 | DNN Model | LeNet-5 |        |        | ResNet-18 |        |        | LeNet-5  |        |        | ResNet-18 |        |        |
-|    Seq    |    #1   |   #2   |   #3   |     #1    |   #2   |   #3   |    #1    |   #2   |   #3   |     #1    |   #2   |   #3   |
+|    Step    |    #1   |   #2   |   #3   |     #1    |   #2   |   #3   |    #1    |   #2   |   #3   |     #1    |   #2   |   #3   |
 |:---------:|---------|--------|--------|---------|--------|--------|---------------|--------|--------|---------|--------|--------|
 |   Step 0  |  83.45  | 84.10  | 83.92  |   85.18   | 86.59  | 85.73  |  53.84   | 53.02  | 52.38  |   65.88   | 64.37  | 63.15  |
 |   Step 1  |  86.65  | 87.74  | 86.84  |   91.46   | 92.36  | 90.80  |  58.21   | 57.88  | 57.29  |   74.51   | 72.06  | 72.55  |
@@ -41,11 +42,11 @@ Detailed result of Accuracy in trivial DL model evolution:
 |   Step 7  |  90.40  | 90.57  | 90.59  |   95.26   | 95.46  | 95.08  |     -    |    -   |    -   |     -     |    -   |    -   |
 
 
-Detailed result of NFR in trivial DL model evolution:
+Detailed result of **NFR** in trivial DL model evolution in each run.
 
 |  Dataset  | MNIST   |       |       |         |       |       | Fashion-MNIST |       |       |         |       |       |
 | DNN Model | LeNet-1 |       |       | LeNet-5 |       |       | LeNet-1       |       |       | LeNet-5 |       |       |
-|    Seq    |    #1   |   #2  |   #3  |    #1   |   #2  |   #3  |       #1      |   #2  |   #3  |    #1   |   #2  |   #3  |
+|    Step    |    #1   |   #2  |   #3  |    #1   |   #2  |   #3  |       #1      |   #2  |   #3  |    #1   |   #2  |   #3  |
 |:---------:|---------|--------|--------|---------|--------|--------|---------------|--------|--------|---------|--------|--------|
 |   Step 1  | 0.58    | 0.16  | 0.28  | 0.20    | 0.23  | 0.14  | 2.53          | 1.57  | 1.58  | 1.49    | 2.05  | 1.61  |
 |   Step 2  | 0.32    | 0.23  | 0.30  | 0.09    | 0.22  | 0.14  | 1.80          | 1.49  | 1.60  | 1.26    | 1.12  | 1.09  |
@@ -55,7 +56,7 @@ Detailed result of NFR in trivial DL model evolution:
 
 |  Dataset  | SVHN    |       |       |           |       |       | CIFAR-10 |       |       |           |       |       |
 | DNN Model | LeNet-5 |       |       | ResNet-18 |       |       | LeNet-5  |       |       | ResNet-18 |       |       |
-|    Seq    |    #1   |   #2  |   #3  |     #1    |   #2  |   #3  |    #1    |   #2  |   #3  |     #1    |   #2  |   #3  |
+|    Step    |    #1   |   #2  |   #3  |     #1    |   #2  |   #3  |    #1    |   #2  |   #3  |     #1    |   #2  |   #3  |
 |:---------:|---------|--------|--------|---------|--------|--------|---------------|--------|--------|---------|--------|--------|
 |   Step 1  | 2.33    | 2.22  | 2.20  | 2.01      | 1.89  | 1.94  | 6.99     | 7.08  | 6.77  | 5.80      | 6.82  | 7.01  |
 |   Step 2  | 2.00    | 1.64  | 1.63  | 1.77      | 1.70  | 2.00  | 6.51     | 6.35  | 6.91  | 5.84      | 5.69  | 5.64  |
@@ -66,32 +67,32 @@ Detailed result of NFR in trivial DL model evolution:
 |   Step 7  | 0.97    | 1.97  | 1.54  | 1.44      | 1.32  | 1.46  |     -    |   -   |   -   |     -     |   -   |   -   |
 
 
-Detailed result of Relative NFR in trivial DL model evolution:
+Detailed result of **Relative NFR** in trivial DL model evolution in each run.
 
 |  Dataset  | MNIST   |        |        |         |        |        | Fashion-MNIST |        |        |         |        |        |
 | DNN Model | LeNet-1 |        |        | LeNet-5 |        |        | LeNet-1       |        |        | LeNet-5 |        |        |
-|    Seq    |    #1   |   #2   |   #3   |    #1   |   #2   |   #3   |       #1      |   #2   |   #3   |    #1   |   #2   |   #3   |
-|:---------:|---------|--------|--------|---------|--------|--------|---------------|--------|--------|---------|--------|--------|
-|   Step 1  | 34.95   | 15.47  | 20.67  | 20.32   | 22.67  | 12.83  | 23.17         | 14.49  | 13.38  | 15.48   | 20.53  | 17.14  |
-|   Step 2  | 22.92   | 23.72  | 24.93  | 11.51   | 25.26  | 15.56  | 16.64         | 14.01  | 13.75  | 13.97   | 12.43  | 12.79  |
-|   Step 3  | 19.51   | 14.12  | 18.41  | 22.68   | 20.45  | 15.33  | 11.84         | 10.63  | 15.29  | 12.46   | 13.17  | 12.09  |
-|   Step 4  | 24.77   | 16.65  | 25.51  | 27.85   | 20.74  | 19.64  | 11.40         | 9.78   | 15.86  | 13.14   | 12.76  | 11.03  |
-|   Step 5  | 10.46   | 14.92  | 33.38  | 14.40   | 23.23  | 18.20  | 13.74         | 9.12   | 11.64  | 11.23   | 8.26   | 9.27   |
+|  Step  | #1    | #2    | #3    | #1    | #2    | #3    | #1    | #2    | #3    | #1    | #2    | #3    |
+| :----: | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| Step 1 | 34.95 | 15.47 | 20.67 | 20.32 | 22.67 | 12.83 | 23.17 | 14.49 | 13.38 | 15.48 | 20.53 | 17.14 |
+| Step 2 | 22.92 | 23.72 | 24.93 | 11.51 | 25.26 | 15.56 | 16.64 | 14.01 | 13.75 | 13.97 | 12.43 | 12.79 |
+| Step 3 | 19.51 | 14.12 | 18.41 | 22.68 | 20.45 | 15.33 | 11.84 | 10.63 | 15.29 | 12.46 | 13.17 | 12.09 |
+| Step 4 | 24.77 | 16.65 | 25.51 | 27.85 | 20.74 | 19.64 | 11.40 | 9.78  | 15.86 | 13.14 | 12.76 | 11.03 |
+| Step 5 | 10.46 | 14.92 | 33.38 | 14.40 | 23.23 | 18.20 | 13.74 | 9.12  | 11.64 | 11.23 | 8.26  | 9.27  |
 
 |  Dataset  | SVHN    |       |       |           |       |       | CIFAR-10 |       |       |           |       |       |
 | DNN Model | LeNet-5 |       |       | ResNet-18 |       |       | LeNet-5  |       |       | ResNet-18 |       |       |
-|    Seq    |    #1   |   #2  |   #3  |     #1    |   #2  |   #3  |    #1    |   #2  |   #3  |     #1    |   #2  |   #3  |
-|:---------:|---------|-------|-------|-----------|-------|-------|----------|-------|-------|-----------|-------|-------|
-|   Step 1  | 20.93   | 21.57 | 19.89 | 27.57     | 28.55 | 24.59 | 31.07    | 31.70 | 30.26 | 34.54     | 37.92 | 40.44 |
-|   Step 2  | 19.57   | 16.94 | 16.46 | 27.95     | 29.47 | 28.88 | 28.57    | 28.24 | 29.80 | 36.59     | 35.11 | 34.75 |
-|   Step 3  | 18.62   | 14.47 | 15.13 | 27.78     | 32.03 | 28.00 | 25.04    | 26.80 | 27.64 | 35.32     | 34.35 | 32.80 |
-|   Step 4  | 15.59   | 13.15 | 13.40 | 28.63     | 31.92 | 30.26 | 25.42    | 24.39 | 28.59 | 32.71     | 34.77 | 35.81 |
-|   Step 5  | 15.26   | 24.40 | 16.22 | 30.77     | 30.54 | 31.83 |     -    |   -   |   -   |     -     |   -   |   -   |
-|   Step 6  | 12.10   | 24.80 | 25.67 | 29.02     | 32.60 | 32.40 |     -    |   -   |   -   |     -     |   -   |   -   |
-|   Step 7  | 11.22   | 23.09 | 18.12 | 31.91     | 30.51 | 31.23 |     -    |   -   |   -   |     -     |   -   |   -   |
+|  Step  | #1    | #2    | #3    | #1    | #2    | #3    | #1    | #2    | #3    | #1    | #2    | #3    |
+| :----: | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| Step 1 | 20.93 | 21.57 | 19.89 | 27.57 | 28.55 | 24.59 | 31.07 | 31.70 | 30.26 | 34.54 | 37.92 | 40.44 |
+| Step 2 | 19.57 | 16.94 | 16.46 | 27.95 | 29.47 | 28.88 | 28.57 | 28.24 | 29.80 | 36.59 | 35.11 | 34.75 |
+| Step 3 | 18.62 | 14.47 | 15.13 | 27.78 | 32.03 | 28.00 | 25.04 | 26.80 | 27.64 | 35.32 | 34.35 | 32.80 |
+| Step 4 | 15.59 | 13.15 | 13.40 | 28.63 | 31.92 | 30.26 | 25.42 | 24.39 | 28.59 | 32.71 | 34.77 | 35.81 |
+| Step 5 | 15.26 | 24.40 | 16.22 | 30.77 | 30.54 | 31.83 | -     | -     | -     | -     | -     | -     |
+| Step 6 | 12.10 | 24.80 | 25.67 | 29.02 | 32.60 | 32.40 | -     | -     | -     | -     | -     | -     |
+| Step 7 | 11.22 | 23.09 | 18.12 | 31.91 | 30.51 | 31.23 | -     | -     | -     | -     | -     | -     |
 
 ### RQ2
-The impact of test input selection techniques on Accuracy:
+The impact of test input selection techniques on **Accuracy** in each run.
 
 |                          | $$MaxP$$ | $$Margin$$ | $$Entropy$$ | $$DeepGini$$ | $$MCP$$ | $$KL_p$$ | $$Var_p$$ | $$Random$$ |
 |--------------------------|----------|------------|-------------|--------------|---------|----------|-----------|------------|
@@ -120,7 +121,7 @@ The impact of test input selection techniques on Accuracy:
 | CIFAR-10/ResNet-18 #2    | 77.04    | 77.21      | 77.19       | 77.09        | 77.02   | 76.29    | 76.91     | 75.89      |
 | CIFAR-10/ResNet-18 #3    | 77.19    | 77.16      | 77.14       | 77.17        | 77.13   | 76.37    | 77.00     | 75.83      |
 
-The impact of test input selection techniques on NFR:
+The impact of test input selection techniques on **NFR** in each run.
 
 |                          | $$MaxP$$ | $$Margin$$ | $$Entropy$$ | $$DeepGini$$ | $$MCP$$ | $$KL_p$$ | $$Var_p$$ | $$Random$$ |
 |--------------------------|----------|------------|-------------|--------------|---------|----------|-----------|------------|
@@ -149,7 +150,7 @@ The impact of test input selection techniques on NFR:
 | CIFAR-10/ResNet-18 #2    | 5.30     | 5.32       | 5.33        | 5.55         | 5.47    | 5.58     | 5.38      | 5.49       |
 | CIFAR-10/ResNet-18 #3    | 5.35     | 5.38       | 5.52        | 5.45         | 5.29    | 5.62     | 5.23      | 5.49       |
 
-The impact of test input selection techniques on Relative NFR:
+The impact of test input selection techniques on **Relative NFR** in each run.
 
 |                          | $$MaxP$$ | $$Margin$$ | $$Entropy$$ | $$DeepGini$$ | $$MCP$$ | $$KL_p$$ | $$Var_p$$ | $$Random$$ |
 |--------------------------|----------|------------|-------------|--------------|---------|----------|-----------|------------|
@@ -179,7 +180,7 @@ The impact of test input selection techniques on Relative NFR:
 | CIFAR-10/ResNet-18 #3    | 37.21    | 37.48      | 38.43       | 37.92        | 36.80   | 37.46    | 36.19     | 35.95      |
 
 
-Gained performance and introduced regression during guided DL model evolution:
+Gained performance and introduced regression during guided DL model evolution.
 
 |                      | $$MaxP$$ | $$Margin$$ | $$Entropy$$ | $$DeepGini$$ | $$MCP$$ | $$KL_p$$ | $$Var_p$$ |
 |----------------------|----------|------------|-------------|--------------|---------|----------|-----------|
@@ -188,7 +189,7 @@ Gained performance and introduced regression during guided DL model evolution:
 | $$\Delta NFR_{rel} (\%)$$ | -11.40   | -9.99      | -8.82       | -12.12       | -7.56   | -7.23    | -6.50     |
 
 ### RQ3
-Labels, methods, parameters correspondence table:
+Configurations of each regression reduction technique.
 
 | Label     | Method                    | Parameters                        |
 |:---------:|---------------------------|-----------------------------------|
@@ -201,7 +202,7 @@ Labels, methods, parameters correspondence table:
 | Mixup1    | Mixup                     | $$\alpha=0.1$$                    |
 | Mixup2    | Mixup                     | $$\alpha=0.2$$                    |
 
-Average performance and regression changes after applying regression reduction intrivial evolution:
+Average performance and regression changes after applying regression reduction in trivial evolution.
 
 |                      | FD1    | FD2    | KD1   | KD2    | LS1    | LS2    | Mixup1 | Mixup2 |
 |----------------------|--------|--------|-------|--------|--------|--------|--------|--------|
@@ -209,7 +210,7 @@ Average performance and regression changes after applying regression reduction i
 | $$\Delta NFR (\%)$$       | -1.64  | 16.69  | 9.81  | 16.72  | 0.11   | 12.75  | -4.95  | 5.66   |
 | $$\Delta NFR_{rel} (\%)$$ | -2.59  | 15.77  | 7.23  | 18.21  | 3.94   | 10.31  | 2.19   | 11.74  |
 
-Average performance and regression changes after applying regression reduction in guided evolution:
+Average performance and regression changes after applying regression reduction in guided evolution.
 
 |                      | FD1    | FD2    | KD1   | KD2    | LS1    | LS2   | Mixup1 | Mixup2 |
 |----------------------|--------|--------|-------|--------|--------|-------|--------|--------|
@@ -217,7 +218,7 @@ Average performance and regression changes after applying regression reduction i
 | $$\Delta NFR (\%)$$       | -4.30  | 7.40   | 4.31  | 17.78  | -2.03  | 0.41  | -7.79  | -2.45  |
 | $$\Delta NFR_{rel} (\%)$$ | -3.40  | 13.06  | 5.05  | 21.92  | 1.10   | 2.01  | -0.21  | 3.24   |
 
-Average performance and regression changes after applying test input selection and regression reduction:
+Average performance and regression changes after applying test input selection and regression reduction.
 
 |                      | FD1     | FD2    | KD1     | KD2    | LS1     | LS2     | Mixup1  | Mixup2  |
 |----------------------|---------|--------|---------|--------|---------|---------|---------|---------|
@@ -225,11 +226,11 @@ Average performance and regression changes after applying test input selection a
 | $$\Delta NFR (\%)$$       | 1.83    | 12.92  | 9.84    | 23.41  | 4.11    | 6.57    | -1.28   | 4.93    |
 | $$\Delta NFR_{rel} (\%)$$ | -27.47  | -0.29  | -14.70  | 9.84   | -22.54  | -14.97  | -19.28  | -16.51  |
 
-Detailed performance and regression changes after applying regression reduction intrivial evolution:
+Detailed performance and regression changes after applying regression reduction intrivial evolution.
 ![](results/regression_reduction/acc-rel_nfr-random-noaug.png)
 
-Detailed performance and regression changes after applying regression reduction in guided evolution:
+Detailed performance and regression changes after applying regression reduction in guided evolution.
 ![](results/regression_reduction/acc-rel_nfr-margin-noaug.png)
 
 ## Implementation
-The source code of our study is available [Here](implementation/dlregression.zip)
+The source code of our study is available [here](implementation/dlregression.zip).
