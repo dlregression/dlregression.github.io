@@ -235,9 +235,9 @@ Detailed performance and regression changes after applying regression reduction 
 ### Source Code
 The source code of our study is available [here](implementation/dlregression.zip).
 
-### Hyper-parameters for RQ1 and RQ2
+### Hyper-parameters
 
-In RQ1 and RQ2, every model follows the following hyper-parameters:
+In our study, every model follows the following hyper-parameters:
 
 Epochs: 100
 
@@ -246,9 +246,4 @@ Batch size: 128
 Optimizer: SGD, 
 lr: 0.1, momentum: 0.9, weight_decay: 5.e-4, nesterov: True
 
-Criterion: CrossEntropyLoss
-
 lr_scheduler: CosineAnnealingLR
-
-### Hyper-parameters for RQ3
-In RQ3, the hyper-parameters are slightly different depending on the regression reduction techniques, please refer to *.yml under config/regression_reduction/ folder in source code for details.
