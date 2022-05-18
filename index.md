@@ -90,6 +90,62 @@ Detailed result of **Relative NFR** in trivial DL model evolution in each run.
 | Step 6 | 12.10 | 24.80 | 25.67 | 29.02 | 32.60 | 32.40 | -     | -     | -     | -     | -     | -     |
 | Step 7 | 11.22 | 23.09 | 18.12 | 31.91 | 30.51 | 31.23 | -     | -     | -     | -     | -     | -     |
 
+Detailed comparison results of **Regression Samples** and **Prediction Churn Samples**. **#Reg.&Churn** column represents the number of test samples that cause both regression and prediction churn. **#Reg.** column indicates the number of test samples that cause regression. **#Churn** column shows the number
+of test samples that cause prediction churn. **#Test Case** column shows the total number of test cases.
+
+|                      | #Reg.&Churn | #Reg. | #Churn | #Test Case |
+|----------------------|-------------|-------|--------|------------|
+| MNIST/LeNet-1        | 61          | 65    | 214    | 10000      |
+| MNIST/LeNet-5        | 51          | 54    | 192    | 10000      |
+| FashionMNIST/LeNet-1 | 650         | 685   | 1749   | 10000      |
+| FashionMNIST/LeNet-5 | 483         | 548   | 1431   | 10000      |
+| SVHN/LeNet-5         | 2070        | 2198  | 6526   | 26032      |
+| SVHN/ResNet-18       | 1949        | 1955  | 4947   | 26032      |
+| CIFAR10/LeNet-5      | 2379        | 2454  | 7144   | 10000      |
+| CIFAR10/ResNet-18    | 1397        | 1403  | 5399   | 10000      |
+
+
+Mean **CLEVER Score** of test samples with and without regression for each DNN model at each evolution
+step. Each row represents a model got in a evolution step. CLEVER score is a attack-agnostic robustness metric. CLEVER score is an estimation of the lower bound of the minimum distortion required to craft an adversarial sample from a normal one. The higher the CLEVER score, the more robust the sample is to a DNN. The third column shows the robustness of samples with regression(with negative flip), and the fourth column shows the robustness of samples without regression(the prediction is correct by both old and new model).
+
+|                      | Step | CLEVER Score With Regression | CLEVER Score Without Regression |
+|----------------------|------|------------------------------|---------------------------------|
+| MNIST/LeNet-1        | 1    | 0.067349                     | 0.419668                        |
+|                      | 2    | 0.022604                     | 0.41728                         |
+|                      | 3    | 0.034638                     | 0.411989                        |
+|                      | 4    | 0.024834                     | 0.412353                        |
+| MNIST/LeNet-5        | 1    | 0.071484                     | 0.582827                        |
+|                      | 2    | 0.031065                     | 0.583569                        |
+|                      | 3    | 0.028412                     | 0.583522                        |
+|                      | 4    | 0.02705                      | 0.54238                         |
+| FashionMNIST/LeNet-1 | 1    | 0.036883                     | 0.232057                        |
+|                      | 2    | 0.021066                     | 0.212174                        |
+|                      | 3    | 0.023813                     | 0.206812                        |
+|                      | 4    | 0.019223                     | 0.216712                        |
+| FashionMNIST/LeNet-5 | 1    | 0.062246                     | 0.362605                        |
+|                      | 2    | 0.032828                     | 0.317225                        |
+|                      | 3    | 0.03704                      | 0.314843                        |
+|                      | 4    | 0.031476                     | 0.312905                        |
+| SVHN/LeNet-5         | 1    | 0.121819                     | 0.718949                        |
+|                      | 2    | 0.102986                     | 0.91154                         |
+|                      | 3    | 0.095741                     | 0.950111                        |
+|                      | 4    | 0.089896                     | 1.011091                        |
+|                      | 5    | 0.068385                     | 0.98811                         |
+|                      | 6    | 0.065909                     | 1.007221                        |
+| SVHN/ResNet-18       | 1    | 0.15857                      | 1.242795                        |
+|                      | 2    | 0.103986                     | 2.005277                        |
+|                      | 3    | 0.123656                     | 1.908736                        |
+|                      | 4    | 0.122521                     | 1.832045                        |
+|                      | 5    | 0.111483                     | 1.738536                        |
+|                      | 6    | 0.10882                      | 1.618756                        |
+| CIFAR10/LeNet-5      | 1    | 0.205188                     | 0.541379                        |
+|                      | 2    | 0.16404                      | 0.406768                        |
+|                      | 3    | 0.148742                     | 0.458309                        |
+| CIFAR10/ResNet-18    | 1    | 0.221279                     | 0.864285                        |
+|                      | 2    | 0.138207                     | 1.466698                        |
+|                      | 3    | 0.134795                     | 1.400762                        |
+
+
 ### RQ2
 The impact of test input selection techniques on **Accuracy** in each run.
 
