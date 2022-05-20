@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 Deep learning (DL) models have been widely employed in a variety of application domains. While DL models are continuously evolving to achieve better predictive performance, regression (i.e., a test sample that was correctly predicted by the old DL model is incorrectly predicted by the new DL model) is also introduced. However, little is known about the regression in DL model evolution across datasets and models; e.g., how severe is the regression problem in DL model evolution? how test input selection, which is often adopted to guide DL model evolution, affects regression? and how effective are existing techniques in reducing regression in DL model evolution? 
 
 To fill the above knowledge gap, we present a large-scale empirical study with four datasets, three DNN models, seven state-of-the-art test input selection techniques, and four state-of-the-art regression reduction techniques to characterize the regression in DL model evolution. We find that i) regression is quite prevalent in DL model evolution across datasets and models, and it often overshadows the improved accuracy; ii) uncertainty-based test input selection techniques improve accuracy in DL model evolution, but also bring more regression problems; and iii) existing regression reduction techniques are not always effective in reducing regression, and usually have a tradeoff in reducing regression and improving performance. Our findings provide practical implications to test input selection and regression reduction in DL model evolution.
